@@ -10,10 +10,12 @@ import com.example.personalprojecttemplate.application.request.constraint.NameCo
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Builder
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @NameConstraint(groups = CROSS_FIELD_VALIDATION.class)
 public class AccountRequest {
     public @interface SINGLE_FIELD_VALIDATION {}
