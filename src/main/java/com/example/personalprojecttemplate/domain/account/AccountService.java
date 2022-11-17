@@ -3,6 +3,9 @@ package com.example.personalprojecttemplate.domain.account;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.personalprojecttemplate.domain.common.exception.CommonExceptions;
+import com.example.personalprojecttemplate.domain.common.exception.DomainErrors;
+
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -14,7 +17,8 @@ public class AccountService {
 
     @Transactional(readOnly = true)
     public AccountDto findById(Long id) {
-        return mapper.toAccountDto(accountRepository.findById(id).orElse(null));
+        return mapper.toAccountDto(accountRepository.findById(id)
+                                                    .orElseThrow(() -> new CommonExceptions(DomainErrors.NOT_FOUND)));
     }
 
     @Transactional
