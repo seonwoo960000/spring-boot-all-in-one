@@ -1,8 +1,8 @@
--- auto-generated definition
+create database onu2;
+
 create table account
 (
-    id                 bigint auto_increment
-        primary key,
+    id                 bigint auto_increment                 primary key,
     username           varchar(100)                          not null,
     password           char(200)                             null,
     auth_provider      varchar(20) default 'NONE'            not null,
@@ -25,11 +25,9 @@ create table account
         unique (username, auth_provider)
 );
 
--- auto-generated definition
 create table store
 (
-    id              bigint auto_increment
-        primary key,
+    id              bigint auto_increment                 primary key,
     account_id      bigint                                not null,
     deleted         tinyint(1)  default 0                 not null,
     name            varchar(100)                          not null,
@@ -49,11 +47,9 @@ create table store
         foreign key (account_id) references account (id)
 );
 
--- auto-generated definition
 create table menu
 (
-    id          bigint auto_increment
-        primary key,
+    id          bigint auto_increment                    primary key,
     store_id    bigint                                   not null,
     account_id  bigint                                   not null,
     name        varchar(50)                              not null,
@@ -69,11 +65,9 @@ create table menu
         foreign key (store_id) references store (id)
 );
 
--- auto-generated definition
 create table attribute
 (
-    id          bigint auto_increment
-        primary key,
+    id          bigint auto_increment                 primary key,
     menu_id     bigint                                not null,
     account_id  bigint                                not null,
     name        varchar(100)                          not null,
@@ -86,11 +80,9 @@ create table attribute
         foreign key (menu_id) references menu (id)
 );
 
--- auto-generated definition
 create table category
 (
-    id          bigint auto_increment
-        primary key,
+    id          bigint auto_increment                 primary key,
     store_id    bigint                                not null,
     name        varchar(100)                          not null,
     menu_ids    varchar(100)                          null,
@@ -103,14 +95,11 @@ create table category
         foreign key (store_id) references store (id)
 );
 
-create index menu_category_id_index
-    on menu (category_id);
+create index menu_category_id_index on menu (category_id);
 
--- auto-generated definition
 create table qr
 (
-    id          bigint auto_increment
-        primary key,
+    id          bigint auto_increment                 primary key,
     store_id    bigint                                not null,
     account_id  bigint                                not null,
     title       varchar(100)                          not null,
@@ -123,11 +112,9 @@ create table qr
         foreign key (store_id) references store (id)
 );
 
--- auto-generated definition
 create table recommendation
 (
-    id          bigint auto_increment
-        primary key,
+    id          bigint auto_increment                 primary key,
     store_id    bigint                                not null,
     account_id  bigint                                not null,
     title       varchar(100)                          not null,
@@ -141,13 +128,9 @@ create table recommendation
         foreign key (store_id) references store (id)
 );
 
-
-
--- auto-generated definition
 create table story
 (
-    id          bigint auto_increment
-        primary key,
+    id          bigint auto_increment                 primary key,
     store_id    bigint                                not null,
     account_id  bigint                                not null,
     title       varchar(100)                          not null,
