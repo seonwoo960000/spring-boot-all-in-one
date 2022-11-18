@@ -1,8 +1,3 @@
-/*
- * Copyright (c) 2022 LINE Corporation. All rights reserved.
- * LINE Corporation PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
- */
-
 package com.example.personalprojecttemplate.util;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;

@@ -1,26 +1,26 @@
 package com.example.personalprojecttemplate.domain.account;
 
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.example.personalprojecttemplate.domain.common.BaseEntity;
+import com.example.personalprojecttemplate.domain.story.Story;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 
 @Data @Entity
 @Table(name = "account")
@@ -57,4 +57,6 @@ public class Account extends BaseEntity {
     @Column(name = "email", length = 30) private String email;
 
     @Column(name = "authority", length = 10) private String authority;
+
+    @OneToMany(mappedBy = "account", fetch = FetchType.LAZY) private List<Story> stories = new ArrayList<>();
 }

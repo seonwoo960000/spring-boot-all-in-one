@@ -39,6 +39,11 @@ public class AccountController {
         return mapper.toAccountResponse(accountService.findById(id));
     }
 
+    @GetMapping("/stories/{id}")
+    public AccountResponse findByIdWithStories(@PathVariable Long id) {
+        return mapper.toAccountResponse(accountService.findByIdWithStories(id));
+    }
+
     @PostMapping
     public AccountResponse save(@RequestBody AccountRequest request) {
         validateAccountRequest(request);

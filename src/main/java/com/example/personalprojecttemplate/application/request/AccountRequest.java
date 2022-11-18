@@ -13,9 +13,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Builder
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
 @NameConstraint(groups = CROSS_FIELD_VALIDATION.class)
 public class AccountRequest {
     public @interface SINGLE_FIELD_VALIDATION {}

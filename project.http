@@ -1,5 +1,8 @@
 ### GET account
-GET http://localhost:8080/account/14
+GET http://localhost:8080/account/1
+
+### GET account with stories
+GET http://localhost:8080/account/stories/1
 
 ### INSERT account
 POST http://localhost:8080/account
@@ -23,11 +26,11 @@ Content-Type: application/json
 }
 
 ### UPDATE account
-PUT http://localhost:8080/account/19
+PUT http://localhost:8080/account/1
 Content-Type: application/json
 
 {
-  "username": "seonwoo username5 updated",
+  "username": "seonwoo",
   "password": "password",
   "authProvider": "GOOGLE",
   "accountExpired": false,

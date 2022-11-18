@@ -1,6 +1,7 @@
 package com.example.personalprojecttemplate.application.response;
 
 import java.time.Instant;
+import java.util.List;
 
 import lombok.Data;
 
@@ -20,4 +21,5 @@ import lombok.Data;
     private final String pictureUrl;
     private final String email;
     private final String authority;
+    private final List<StoryResponse> stories;
 }

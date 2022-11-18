@@ -2,6 +2,9 @@ package com.example.personalprojecttemplate.domain.account;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.List;
+
+import com.example.personalprojecttemplate.domain.story.StoryDto;
 
 import lombok.Data;
 
@@ -25,4 +28,6 @@ import lombok.Data;
     private final String createdBy;
     private final Instant modifiedAt;
     private final String modifiedBy;
+
+    private final List<StoryDto> stories;
 }
